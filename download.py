@@ -32,14 +32,13 @@ variable_single = [                 ## Select parameters which want to download 
     'total_precipitation']
 pressurelevel = pressure_levels(all)  ## If particular level, just write ['level1','level2','etc']
 
-year = '2023'
-month = '11'
-day = date(27, 29)
+date_start = '20201102'
+date_end = '20201106'
 areas = area(25, 75, -25, 150)
 formats = 'netcdf' #or 'grib'
-outputname = typedata+'_'+year+'_'+month+'_'+str(day[0])+'-'+str(day[-1])+'.nc'
+outputname = typedata+'_'+date_start+'_'+date_end+'.nc'
 
 
 ## DOWNLOAD
-download_surface(c, type, typedata, variable_single, year, month, day, areas, formats, outputname)
-#download_pressure(c, type, typedata, variable_pressure, pressurelevel, year, month, day, areas, formats, outputname)
+download_surface(c, type, typedata, variable_single, date_start, date_end, areas, formats, outputname)
+#download_pressure(c, type, typedata, variable_pressure, pressurelevel, date_start, date_end, areas, formats, outputname)
