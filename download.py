@@ -34,11 +34,11 @@ pressurelevel = pressure_levels(all)  ## If particular level, just write ['level
 
 date_start = '20201102'
 date_end = '20201106'
-areas = area(25, 75, -25, 150)
+areas = area(0, 100, -15, 120)
 formats = 'netcdf' #or 'grib'
 outputname = typedata+'_'+date_start+'_'+date_end+'.nc'
 
 
 ## DOWNLOAD
-download_surface(c, type, typedata, variable_single, date_start, date_end, areas, formats, outputname)
-#download_pressure(c, type, typedata, variable_pressure, pressurelevel, date_start, date_end, areas, formats, outputname)
+#download_surface(c, type, typedata, variable_single, date_start, date_end, areas, formats, outputname)
+download_pressure(c, type, typedata, variable_pressure, pressurelevel, date_start, date_end, areas, formats, outputname)
