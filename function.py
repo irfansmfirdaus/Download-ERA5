@@ -31,15 +31,13 @@ def date(day1, day2):
 def area(north, west, south, east):
     return [north, west, south, east]
 
-def download_surface(c, type, typedata, variable_surface, year, month, day, areas, formats, outputname):
+def download_surface(c, type, typedata, variable_single, date_start, date_end, areas, formats, outputname):
     c.retrieve(
         typedata,
         {
         'product_type': 'reanalysis',
-        'variable': variable_surface,
-        'year': year,
-        'month': month,
-        'day': day,
+        'variable': variable_single,
+        'date': str(date_start)+'/'+str(date_end),
         'time': [
             '00:00', '01:00', '02:00',
             '03:00', '04:00', '05:00',
@@ -56,16 +54,14 @@ def download_surface(c, type, typedata, variable_surface, year, month, day, area
         outputname)
     return print('Download '+str(outputname))
 
-def download_pressure(c, type, typedata, variable_pressure, pressurelevel, year, month, day, areas, formats, outputname):
+def download_pressure(c, type, typedata, variable_pressure, pressurelevel, date_start, date_end, areas, formats, outputname):
     c.retrieve(
         typedata,
         {
         'product_type': 'reanalysis',
         'variable': variable_pressure,
         'pressure_level': pressurelevel,
-        'year': year,
-        'month': month,
-        'day': day,
+        'date': str(date_start)+'/'+str(date_end),
         'time': [
             '00:00', '01:00', '02:00',
             '03:00', '04:00', '05:00',
